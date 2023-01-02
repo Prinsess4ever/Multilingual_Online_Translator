@@ -38,25 +38,23 @@ def write_en_print(word, message):
 
 dict_language = {"1": "arabic", "2": "german", "3": "english", "4": "spanish", "5": "french", "6": "hebrew", "7": "japanese", "8": "dutch", "9": "polish", "10": "portuguese", "11": "romanian", "12": "russian", "13": "turkish"}
 
-print("Hello, welcome to the translator. Translator supports:")
-for number, language in dict_language.items():
-    print(f"{number}. {language.title()}")
+original_language = sys.argv[1]
+translation_language = sys.argv[2]
+if translation_language == "all":
+    translation_language = "0"
 
-
-original_language = input("Type the number of your language: \n")
-translation_language = input("Type the number of a language you want to translate to or '0' to translate to all languages:\n")
-word = input("Type the word you want to translate:\n")
+word = sys.argv[3]
 
 headers = {'User-Agent': 'Mozilla/5.0'}
-original_language = dict_language[original_language]
+original_language = original_language
 
 if translation_language != '0':
-    r = requests.get(f"https://context.reverso.net/translation/{original_language}-{dict_language[translation_language]}/{word}", headers=headers)
+    r = requests.get(f"https://context.reverso.net/translation/{original_language}-{translation_language}/{word}", headers=headers)
     if not r:
         sys.exit(0)
     soup = BeautifulSoup(r.content, 'html.parser')
 
-    translation(5, dict_language[translation_language])
+    translation(5, translation_language)
 
 else:
     for number, language in dict_language.items():
