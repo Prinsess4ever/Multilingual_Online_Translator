@@ -149,17 +149,8 @@ files:
         TranslatorTest('translator.translator').run_tests()
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/8973#comment
-status: Failed
+status: Solved
 feedback:
-  message: "Exception in test #1\n\nTraceback (most recent call last):\n  File \"\
-    translator.py\", line 46, in <module>\n    print(text1[i].text.strip())\nIndexError:\
-    \ list index out of range\n\nPlease find below the output of your program during\
-    \ this failed test.\nNote that the '>' character indicates the beginning of the\
-    \ input line.\n\n---\n\nHello, welcome to the translator. Translator supports:\n\
-    1. Arabic\n2. German\n3. English\n4. Spanish\n5. French\n6. Hebrew\n7. Japanese\n\
-    8. Dutch\n9. Polish\n10. Portuguese\n11. Romanian\n12. Russian\n13. Turkish\n\
-    Type the number of your language: \n> 3\nType the number of language you want\
-    \ to translate to:\n> 7\nType the word you want to translate:\n> what\n200 OK\n\
-    \nJapanese Translations\n\nJapanese Example"
-  time: Mon, 02 Jan 2023 07:00:12 UTC
+  message: Congratulations!
+  time: Mon, 02 Jan 2023 07:10:51 UTC
 record: -1

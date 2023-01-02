@@ -4,15 +4,15 @@ import requests
 
 from bs4 import BeautifulSoup
 
-dict_language = {"1": "Arabic", "2": "German", "3": "English", "4": "Spanish", "5": "French", "6": "Hebrew", "7": "Japanese", "8": "Dutch", "9": "Polish", "10": "Portuguese", "11": "Romanian", "12": "Russian", "13": "Turkish"}
+dict_language = {"1": "arabic", "2": "german", "3": "english", "4": "spanish", "5": "french", "6": "hebrew", "7": "japanese", "8": "dutch", "9": "polish", "10": "portuguese", "11": "romanian", "12": "russian", "13": "turkish"}
 
 print("Hello, welcome to the translator. Translator supports:")
 for number, language in dict_language.items():
-    print(f"{number}. {language}")
+    print(f"{number}. {language.title()}")
 
 
 original_language = input("Type the number of your language: \n")
-translation_language = input("Type the number of language you want to translate to:")
+translation_language = input("Type the number of language you want to translate to:\n")
 word = input("Type the word you want to translate:\n")
 
 headers = {'User-Agent': 'Mozilla/5.0'}
@@ -21,7 +21,7 @@ r = requests.get(f"https://context.reverso.net/translation/{dict_language[origin
 full_word = dict_language[translation_language]
 
 if r:
-    print("200 OK")
+    pass
 else:
     sys.exit(0)
 
@@ -30,14 +30,14 @@ transleted_zinnen = []
 
 soup = BeautifulSoup(r.content, 'html.parser')
 
-print(f"\n{full_word} Translations")
+print(f"\n{full_word.title()} Translations")
 
 for i, text1 in enumerate(soup.select("span.display-term")):
     if i+1 == 6:
         break
 
     print(text1.text)
-print(f"\n{full_word} Example")
+print(f"\n{full_word.title()} Examples")
 
 text1 = soup.select("div.src.ltr")
 text2 = soup.select("div.trg.ltr")
